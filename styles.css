@@ -1,0 +1,303 @@
+:root {
+    --primaria: #6366f1;
+    --secundaria: #a855f7;
+    --detalhe: #10b981; /* Verde para destacar o status "on" */
+    --escuro: #0f172a;
+    --maisEscuro: #020617;
+    --claro: #f8fafc;
+    --vidro: rgba(255, 255, 255, 0.03);
+    --borda-vidro: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--maisEscuro);
+    color: var(--claro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Animado */
+.particulas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+}
+
+/* Navegação Premium */
+.navegacao {
+    position: fixed;
+    top: 0; width: 100%; z-index: 1000;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borda-vidro);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--claro);
+    text-decoration: none;
+}
+
+.logo span { color: var(--primaria); }
+
+.menu { display: flex; list-style: none; gap: 2rem; }
+
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.menu-link:hover { opacity: 1; color: var(--primaria); }
+
+/* Header / Hero */
+.cab {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.foto-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.dev-perfil {
+    width: 220px; height: 220px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Forma orgânica */
+    border: 3px solid var(--primaria);
+    object-fit: cover;
+    animation: morph 8s ease-in-out infinite;
+    background: var(--escuro);
+}
+
+@keyframes morph {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 10px; right: -10px;
+    background: var(--detalhe);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+h1 { font-size: 4rem; letter-spacing: -2px; margin-bottom: 0.5rem; }
+
+.funcao { font-size: 1.2rem; color: var(--primaria); font-family: monospace; }
+
+.social-links { margin-top: 1.5rem; display: flex; gap: 1.5rem; font-size: 1.5rem; justify-content: center;}
+
+.social-links a { color: var(--claro); transition: 0.3s; opacity: 0.6; }
+
+.social-links a:hover { opacity: 1; transform: translateY(-3px); }
+
+/* Seções Gerais */
+.titulo-secao {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.sobre, .projetos, .contato, .habilidades {
+    padding: 100px 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.sobre-texto p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    color: var(--claro);
+    opacity: 0.9;
+    font-size: 1.1rem;
+
+}
+
+.sobre-highlights {
+    list-style: none;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.sobre-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--primaria);
+}
+
+.sobre-highlights li i {
+    color: var(--detalhe);
+    font-size: 1.2rem;
+}
+
+.sobre-texto strong {
+    color: var(--primaria);
+    font-weight: 600;
+}
+
+/* Cards de Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: var(--vidro);
+    border: 1px solid var(--borda-vidro);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill-card i { font-size: 2rem; margin-bottom: 10px; color: var(--secundaria); }
+
+.skill-card:hover { border-color: var(--primaria); transform: translateY(-5px); }
+
+/* Projetos */
+.projeto-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.projetos-card {
+    background: var(--vidro);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--borda-vidro);
+    transition: 0.4s;
+}
+
+.img-wrapper { overflow: hidden; height: 200px; }
+
+.projetos-imagem {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: 0.5s;
+}
+
+.projetos-card:hover .projetos-imagem { transform: scale(1.1); }
+
+.tag {
+    background: var(--primaria);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.caixa-textos-projeto { padding: 1.5rem; }
+
+.info-projetos { margin: 10px 0; }
+
+/* Contato */
+.formulario-contato {
+    background: var(--vidro);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid var(--borda-vidro);
+}
+
+.campo-form {
+    width: 100%; padding: 1rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--borda-vidro);
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.botao-form {
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    color: white; border: none; padding: 1rem; width: 100%;
+    border-radius: 12px; font-weight: bold; cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-form:hover { filter: brightness(1.2); transform: scale(1.02); }
+
+/* Mobile */
+/* Procure lá no final do CSS e substitua por isso */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; } /* Diminui o título para não quebrar a tela */
+    
+    .nav-container {
+        flex-direction: column; /* Coloca a logo em cima e o menu embaixo */
+        gap: 10px;
+    }
+
+    .menu { 
+        display: flex; /* Garante que ele apareça */
+        gap: 1rem;     /* Diminui o espaço entre os links no celular */
+        padding: 0;
+    }
+
+    .menu-link {
+        font-size: 0.8rem; /* Diminui a letra dos links */
+    }
+}
+
+.botao-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    color: var(--detalhe);
+    border: 2px solid var(--detalhe);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao-cv:hover {
+    background: var(--detalhe);
+    color: var(--maisEscuro);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+.container-cv {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Alinha verticalmente se necessário */
+    width: 100%;             /* Garante que ocupe a largura toda da caixa */
+    margin-top: 2rem;        /* Dá um espaço do texto acima */
+}
+
