@@ -226,6 +226,16 @@ h1 { font-size: 4rem; letter-spacing: -2px; margin-bottom: 0.5rem; }
 
 .info-projetos { margin: 10px 0; }
 
+.info-projetos a {
+    text-decoration: none; 
+    color: inherit;      
+    display: block;       
+    cursor: pointer;
+}
+
+.info-projetos a:hover {
+    color: var(--primaria);
+}
 /* Contato */
 .formulario-contato {
     background: var(--vidro);
